@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> 
+    
     <title>FestGround | Asia's Premier Music Festival Platform</title>
     <meta name="title" content="FestGround | Asia's Premier Music Festival Platform">
     <meta name="description" content="Asia's leading platform for music festival ticketing, event marketing, and VVIP concierge services. Official partner for Ultra, S2O, and major EDM events.">
@@ -21,10 +25,6 @@
     <meta property="twitter:url" content="https://www.festground.com/">
     <meta property="twitter:title" content="FestGround | Asia's Premier Music Festival Platform">
     <meta property="twitter:description" content="Asia's leading platform for music festival ticketing, event marketing, and VVIP concierge services.">
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -129,12 +129,11 @@
             display: none;
             background: none;
             border: none;
-            /* FIX: Explicitly set the color to the bright accent color */
             color: var(--accent-color); 
             font-size: 2rem;
             cursor: pointer;
             padding: 0 10px;
-            line-height: 1; /* Ensures the triple bar is centered vertically */
+            line-height: 1; 
         }
 
         /* --- LAYOUT --- */
@@ -188,6 +187,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            margin-bottom: 80px; /* Add some space before the partners section */
         }
 
         .service-card {
@@ -208,6 +208,57 @@
             font-size: 1.3rem;
             color: white;
         }
+
+        /* --- KEY PARTNERS SECTION --- */
+        .partners-section {
+            padding: 60px 0;
+            text-align: center;
+            overflow: hidden; /* Hide overflowing parts of the loop */
+        }
+
+        .partners-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-text);
+        }
+
+        .partners-loop-container {
+            display: flex;
+            width: 200%; /* Double the width to create a seamless loop effect */
+            animation: partners-scroll 40s linear infinite; /* Adjust duration for speed */
+        }
+
+        .partners-loop-container:hover {
+            animation-play-state: paused; /* Pause animation on hover */
+        }
+
+        .partners-logo {
+            flex-shrink: 0; /* Prevents logos from shrinking */
+            width: 180px; /* Adjust logo container width */
+            height: 80px; /* Adjust logo container height */
+            margin: 0 25px; /* Space between logos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%) brightness(150%); /* Subtle effect for partner logos */
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .partners-logo:hover {
+            filter: grayscale(0%) brightness(100%); /* Colorize on hover */
+        }
+
+        .partners-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures logo fits without being cropped */
+        }
+
+        @keyframes partners-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Scroll exactly half the container width */
+        }
+
 
         /* --- ABOUT --- */
         .about-content {
@@ -305,7 +356,7 @@
                 top: var(--nav-height);
                 left: 0;
                 width: 100%;
-                background-color: var(--card-bg); /* Use card background for the menu dropdown */
+                background-color: var(--card-bg); 
                 border-top: 1px solid #333;
                 z-index: 900;
                 padding: 10px 0;
@@ -345,10 +396,30 @@
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                margin-bottom: 60px; /* Adjust spacing for mobile */
             }
 
             .about-content, .contact-container {
                 padding: 20px;
+            }
+
+            /* Partners Section Adjustments for Mobile */
+            .partners-section {
+                padding: 40px 0;
+            }
+
+            .partners-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .partners-logo {
+                width: 120px; /* Smaller logos on mobile */
+                height: 60px;
+                margin: 0 15px;
+            }
+            .partners-loop-container {
+                animation-duration: 30s; /* Faster scroll on mobile */
             }
         }
     </style>
@@ -401,7 +472,36 @@
                     <p>Sit back and take advantage of the most luxurious travel packages. From backstage tours to ticket upgrades and exclusive tables, we elevate your festival experience to the extraordinary.</p>
                 </div>
             </div>
-        </section>
+
+            <div class="partners-section">
+                <h2>Our Key Event Partners</h2>
+                <div class="partners-loop-wrapper">
+                    <div class="partners-loop-container">
+                        <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-beach-bali.png" alt="Ultra Beach Bali Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-australia.png" alt="Ultra Australia Logo"></div>
+                        <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="S2O Taiwan Logo"></div>
+                        <div class="partners-logo"><img src="img/808-festival.png" alt="808 Festival Logo"></div>
+                        <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown Logo"></div>
+                        <div class="partners-logo"><img src="img/dwp.png" alt="DWP Logo"></div>
+                        
+                        <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-beach-bali.png" alt="Ultra Beach Bali Logo"></div>
+                        <div class="partners-logo"><img src="img/ultra-australia.png" alt="Ultra Australia Logo"></div>
+                        <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="S2O Taiwan Logo"></div>
+                        <div class="partners-logo"><img src="img/808-festival.png" alt="808 Festival Logo"></div>
+                        <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown Logo"></div>
+                        <div class="partners-logo"><img src="img/dwp.png" alt="DWP Logo"></div>
+                    </div>
+                </div>
+            </div>
+            </section>
 
         <section id="about">
             <h1>About Us</h1>
