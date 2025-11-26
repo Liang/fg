@@ -87,12 +87,12 @@
             align-items: center;
             justify-content: flex-start;
             text-decoration: none;
-            height: auto; /* Allow height to be determined by content/max-height */
-            width: 200px; /* Increased site logo container width to 200px */
+            height: auto; 
+            width: 200px; /* Site logo container width at 200px */
         }
         
         .logo img {
-            max-height: 40px; /* Retain max height constraint on image if needed, or remove */
+            max-height: 40px; 
             max-width: 100%;  
             height: auto;
             width: auto;
@@ -171,6 +171,16 @@
             display: inline-block;
         }
 
+        /* Standard H2 Style for Section Titles */
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-text);
+            margin-top: 40px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
         p {
             color: var(--secondary-text);
             margin-bottom: 20px;
@@ -182,11 +192,60 @@
             padding: 60px 0;
         }
 
+        /* --- UPCOMING EVENTS SECTION --- */
+        .events-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            overflow-x: auto; /* Allow horizontal scroll if many events */
+            padding-bottom: 15px; /* Space for scrollbar */
+        }
+
+        .event-card {
+            flex: 0 0 320px; /* Fixed width for event card */
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--primary-text);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #333;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-banner {
+            width: 100%;
+            height: 180px; /* Standard banner height */
+            object-fit: cover;
+        }
+
+        .event-info {
+            padding: 15px;
+        }
+
+        .event-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        .event-details p {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin: 5px 0;
+        }
+
+
+        /* --- SERVICES GRID --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 30px; /* Adjusted margin since H2 is above */
             margin-bottom: 80px; 
         }
 
@@ -209,7 +268,7 @@
             color: white;
         }
 
-        /* --- KEY PARTNERS SECTION (Smoother Loop CSS) --- */
+        /* --- KEY PARTNERS SECTION --- */
         .partners-section {
             padding: 60px 0;
             text-align: center;
@@ -235,7 +294,7 @@
 
         .partners-logo {
             flex-shrink: 0; 
-            width: 200px; /* Partner logo width maintained at 200px */
+            width: 200px; 
             height: auto; 
             margin: 0 25px; 
             display: flex;
@@ -413,6 +472,13 @@
             .partners-loop-container {
                 animation-duration: 30s;
             }
+
+            .events-container {
+                padding-bottom: 10px; /* Tighter spacing on mobile */
+            }
+            .event-card {
+                flex: 0 0 280px; /* Slightly smaller card on mobile */
+            }
         }
     </style>
 </head>
@@ -448,6 +514,45 @@
                 <p>Connecting you to the rhythm of the world. Ticketing, Marketing, and VVIP Services.</p>
             </div>
 
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-container">
+                
+                <a href="#" class="event-card" onclick="alert('Link to Neon Countdown 2025 tickets')">
+                    <img src="https://via.placeholder.com/320x180/F9E609/1A1A1A?text=Neon+Countdown+Banner" alt="Neon Countdown 2025 Banner" class="event-banner" loading="lazy">
+                    <div class="event-info">
+                        <h3>Neon Countdown 2025</h3>
+                        <div class="event-details">
+                            <p>&#x1F4CD; **Location:** Bangkok, Thailand</p>
+                            <p>&#x1F4C5; **Date:** December 30 - 31, 2025</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="event-card" onclick="alert('Link to Future Event tickets')">
+                    <img src="https://via.placeholder.com/320x180/2f2f2f/D0D0D0?text=Future+Festival+Banner" alt="Future Festival Banner" class="event-banner" loading="lazy">
+                    <div class="event-info">
+                        <h3>Future Asia Festival</h3>
+                        <div class="event-details">
+                            <p>&#x1F4CD; **Location:** Tokyo, Japan</p>
+                            <p>&#x1F4C5; **Date:** Q2 2026</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="event-card" onclick="alert('Link to Another Event tickets')">
+                    <img src="https://via.placeholder.com/320x180/3d3d3d/FFFFFF?text=Ultra+Bali+2026+Banner" alt="Ultra Bali Banner" class="event-banner" loading="lazy">
+                    <div class="event-info">
+                        <h3>Ultra Beach Bali 2026</h3>
+                        <div class="event-details">
+                            <p>&#x1F4CD; **Location:** Bali, Indonesia</p>
+                            <p>&#x1F4C5; **Date:** September 2026</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Event Ticketing</h3>
