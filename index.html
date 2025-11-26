@@ -87,13 +87,13 @@
             align-items: center;
             justify-content: flex-start;
             text-decoration: none;
-            height: 40px; /* Container height for vertical alignment */
-            width: 150px; /* Added width constraint to the container */
+            height: 40px; 
+            width: 150px; 
         }
         
         .logo img {
-            max-height: 100%; /* Fixes overflow: image will not exceed 40px height */
-            max-width: 100%;  /* Ensures the image doesn't stretch beyond the container width */
+            max-height: 100%; 
+            max-width: 100%;  
             height: auto;
             width: auto;
             transition: opacity 0.3s;
@@ -187,7 +187,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
-            margin-bottom: 80px; /* Add some space before the partners section */
+            margin-bottom: 80px; 
         }
 
         .service-card {
@@ -209,11 +209,11 @@
             color: white;
         }
 
-        /* --- KEY PARTNERS SECTION --- */
+        /* --- KEY PARTNERS SECTION (Smoother Loop CSS) --- */
         .partners-section {
             padding: 60px 0;
             text-align: center;
-            overflow: hidden; /* Hide overflowing parts of the loop */
+            overflow: hidden; 
         }
 
         .partners-section h2 {
@@ -222,43 +222,45 @@
             color: var(--primary-text);
         }
 
+        /* Key Change: Ensures the container is wide enough for two full sets of logos */
         .partners-loop-container {
             display: flex;
-            width: 200%; /* Double the width to create a seamless loop effect */
-            animation: partners-scroll 40s linear infinite; /* Adjust duration for speed */
+            width: fit-content; 
+            min-width: 200%; /* Must be wide enough to contain the duplicated logos */
+            animation: partners-scroll 40s linear infinite; /* Adjusted duration for speed */
         }
 
         .partners-loop-container:hover {
-            animation-play-state: paused; /* Pause animation on hover */
+            animation-play-state: paused; 
         }
 
         .partners-logo {
-            flex-shrink: 0; /* Prevents logos from shrinking */
-            width: 180px; /* Adjust logo container width */
-            height: 80px; /* Adjust logo container height */
-            margin: 0 25px; /* Space between logos */
+            flex-shrink: 0; 
+            width: 180px; 
+            height: 80px; 
+            margin: 0 25px; 
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(100%) brightness(150%); /* Subtle effect for partner logos */
+            filter: grayscale(100%) brightness(150%); 
             transition: filter 0.3s ease-in-out;
         }
 
         .partners-logo:hover {
-            filter: grayscale(0%) brightness(100%); /* Colorize on hover */
+            filter: grayscale(0%) brightness(100%); 
         }
 
         .partners-logo img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Ensures logo fits without being cropped */
+            object-fit: contain; 
         }
 
+        /* Key Change: Animation moves exactly 50% of the container's calculated width */
         @keyframes partners-scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Scroll exactly half the container width */
+            100% { transform: translateX(-50%); } 
         }
-
 
         /* --- ABOUT --- */
         .about-content {
@@ -335,20 +337,16 @@
 
         /* --- MOBILE RESPONSIVENESS --- */
         
-        /* Apply to screens 768px and smaller (Mobile & Tablet Vertical) */
         @media (max-width: 768px) {
             
-            /* Header and Nav adjustments */
             header {
                 padding: 0 4%;
             }
             
-            /* Show Mobile Menu Button */
             .menu-toggle {
                 display: block;
             }
             
-            /* Hide regular desktop navigation links */
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -362,7 +360,6 @@
                 padding: 10px 0;
             }
             
-            /* Show navigation list when mobile-menu is active */
             nav.mobile-menu ul {
                 display: flex;
             }
@@ -383,7 +380,6 @@
                 text-align: center;
             }
             
-            /* Layout Adjustments */
             main {
                 padding: 20px 4%;
             }
@@ -392,18 +388,16 @@
                 font-size: 2rem;
             }
             
-            /* Force grid to stack on mobile */
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
-                margin-bottom: 60px; /* Adjust spacing for mobile */
+                margin-bottom: 60px; 
             }
 
             .about-content, .contact-container {
                 padding: 20px;
             }
 
-            /* Partners Section Adjustments for Mobile */
             .partners-section {
                 padding: 40px 0;
             }
@@ -414,12 +408,12 @@
             }
 
             .partners-logo {
-                width: 120px; /* Smaller logos on mobile */
+                width: 120px; 
                 height: 60px;
                 margin: 0 15px;
             }
             .partners-loop-container {
-                animation-duration: 30s; /* Faster scroll on mobile */
+                animation-duration: 30s;
             }
         }
     </style>
@@ -475,33 +469,33 @@
 
             <div class="partners-section">
                 <h2>Our Key Event Partners</h2>
-                <div class="partners-loop-wrapper">
-                    <div class="partners-loop-container">
-                        <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-beach-bali.png" alt="Ultra Beach Bali Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-australia.png" alt="Ultra Australia Logo"></div>
-                        <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="S2O Taiwan Logo"></div>
-                        <div class="partners-logo"><img src="img/808-festival.png" alt="808 Festival Logo"></div>
-                        <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown Logo"></div>
-                        <div class="partners-logo"><img src="img/dwp.png" alt="DWP Logo"></div>
-                        
-                        <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-beach-bali.png" alt="Ultra Beach Bali Logo"></div>
-                        <div class="partners-logo"><img src="img/ultra-australia.png" alt="Ultra Australia Logo"></div>
-                        <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="S2O Taiwan Logo"></div>
-                        <div class="partners-logo"><img src="img/808-festival.png" alt="808 Festival Logo"></div>
-                        <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown Logo"></div>
-                        <div class="partners-logo"><img src="img/dwp.png" alt="DWP Logo"></div>
-                    </div>
+                <div class="partners-loop-container">
+                    
+                    <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-beach-bali.png" alt="Ultra Beach Bali Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-australia.png" alt="Ultra Australia Logo"></div>
+                    <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="S2O Taiwan Logo"></div>
+                    <div class="partners-logo"><img src="img/808-festival.png" alt="808 Festival Logo"></div>
+                    <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown Logo"></div>
+                    <div class="partners-logo"><img src="img/dwp.png" alt="DWP Logo"></div>
+                    
+                    <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-beach-bali.png" alt="Ultra Beach Bali Logo"></div>
+                    <div class="partners-logo"><img src="img/ultra-australia.png" alt="Ultra Australia Logo"></div>
+                    <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="S2O Taiwan Logo"></div>
+                    <div class="partners-logo"><img src="img/808-festival.png" alt="808 Festival Logo"></div>
+                    <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown Logo"></div>
+                    <div class="partners-logo"><img src="img/dwp.png" alt="DWP Logo"></div>
                 </div>
             </div>
-            </section>
+            
+        </section>
 
         <section id="about">
             <h1>About Us</h1>
