@@ -120,6 +120,17 @@
             color: var(--accent-color);
         }
 
+        /* Mobile Menu Button (Hidden by default) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
         /* --- LAYOUT --- */
         main {
             min-height: calc(100vh - var(--nav-height) - 100px);
@@ -265,13 +276,73 @@
             background-color: #1a1a1a;
         }
 
-        /* Mobile */
+        /* --- MOBILE RESPONSIVENESS --- */
+        
+        /* Apply to screens 768px and smaller (Mobile & Tablet Vertical) */
         @media (max-width: 768px) {
-            nav ul {
-                display: none; 
+            
+            /* Header and Nav adjustments */
+            header {
+                padding: 0 4%;
             }
+            
+            /* Show Mobile Menu Button */
+            .menu-toggle {
+                display: block;
+            }
+            
+            /* Hide regular desktop navigation links */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg); /* Use card background for the menu dropdown */
+                border-top: 1px solid #333;
+                z-index: 900;
+                padding: 10px 0;
+            }
+            
+            /* Show navigation list when mobile-menu is active */
+            nav.mobile-menu ul {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid #333;
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 12px 5%;
+                font-size: 1rem;
+                text-align: center;
+            }
+            
+            /* Layout Adjustments */
+            main {
+                padding: 20px 4%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            /* Force grid to stack on mobile */
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .about-content, .contact-container {
+                padding: 20px;
             }
         }
     </style>
@@ -285,7 +356,8 @@
                  alt="FestGround Logo" 
                  loading="lazy">
         </a>
-        <nav>
+        
+        <nav id="main-nav">
             <ul>
                 <li><a href="#" onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
                 <li><a href="#" onclick="showSection('about')" id="nav-about">About</a></li>
@@ -293,6 +365,10 @@
                 <li><a href="#" onclick="showSection('contact')" id="nav-contact">Contact</a></li>
             </ul>
         </nav>
+        
+        <button class="menu-toggle" aria-label="Toggle Navigation" onclick="toggleMobileMenu()">
+            &#x2261;
+        </button>
     </header>
 
     <main>
@@ -375,6 +451,12 @@
     <script>
         function showSection(sectionId) {
             if(event) event.preventDefault();
+            
+            // Hide mobile menu when a link is clicked
+            const nav = document.getElementById('main-nav');
+            if (nav.classList.contains('mobile-menu')) {
+                 nav.classList.remove('mobile-menu');
+            }
 
             // Hide all sections
             const sections = document.querySelectorAll('main section');
@@ -385,11 +467,17 @@
             if(target) target.classList.add('active');
 
             // Update Nav Highlighting
-            const navLinks = document.querySelectorAll('nav ul li a');
+            const navLinks = document.querySelectorAll('#main-nav ul li a');
             navLinks.forEach(link => link.classList.remove('active'));
             
             const navItem = document.getElementById('nav-' + sectionId);
             if(navItem) navItem.classList.add('active');
+        }
+        
+        // New JavaScript function to toggle the mobile menu
+        function toggleMobileMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('mobile-menu');
         }
 
         function sendEmail(e) {
