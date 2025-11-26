@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>FestGround | Asia's Premier Music Festival Platform</title>
+    <meta name="title" content="FestGround | Asia's Premier Music Festival Platform">
+    <meta name="description" content="Asia's leading platform for music festival ticketing, event marketing, and VVIP concierge services. Official partner for Ultra, S2O, and major EDM events.">
+    <meta name="keywords" content="FestGround, Music Festival, EDM, Asia Ticketing, VVIP Service, Event Marketing, Rave, Nightlife">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://www.festground.com/">
+    <meta property="og:title" content="FestGround | Asia's Premier Music Festival Platform">
+    <meta property="og:description" content="Secure your spot at iconic festivals safely and easily. We provide official ticketing and luxury VVIP concierge services across Asia.">
+    <meta property="og:image" content="https://www.festground.com/img/logo/festground_logo_white.svg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.festground.com/">
+    <meta property="twitter:title" content="FestGround | Asia's Premier Music Festival Platform">
+    <meta property="twitter:description" content="Asia's leading platform for music festival ticketing, event marketing, and VVIP concierge services.">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <style>
+        /* --- FESTGROUND CORRECT COLOR SCHEMA (Adjusted for Contrast) --- */
+        :root {
+            /* Main Background Color (Darker for better contrast) */
+            --bg-color: #1a1a1a;
+            /* Card Background (Lighter and more distinct from BG) */
+            --card-bg: #2f2f2f; 
+            /* Header matches background but slightly transparent */
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            
+            /* Text Colors */
+            --primary-text: #ffffff;
+            --secondary-text: #d0d0d0; /* Lightened for better contrast */
+            
+            /* FestGround CTA Neon Yellow/Gold Accent */
+            --accent-color: #f9e609;
+            --accent-gradient: linear-gradient(90deg, #f9e609 0%, #ffc600 100%);
+            
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--nav-bg);
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333; 
+            backdrop-filter: blur(10px);
+        }
+
+        /* CSS-Based Logo */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent-color);
+        }
+
+        /* --- LAYOUT --- */
+        main {
+            min-height: calc(100vh - var(--nav-height) - 100px);
+            padding: 40px 5%;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            /* Gradient using the new gold color */
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+        }
+
+        /* --- HOME --- */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg); /* Distinct card color */
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        /* --- ABOUT --- */
+        .about-content {
+            background-color: var(--card-bg); /* Distinct card color */
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg); /* Distinct card color */
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-text);
+            font-size: 0.9rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a; /* Dark input fields */
+            border: 1px solid #3d3d3d;
+            border-radius: 4px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        button.submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 4px;
+            color: #1a1a1a;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        button.submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            background-color: #1a1a1a;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; 
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+        <a href="#" class="logo" onclick="showSection('home')">Fest<span style="color: #f9e609;">Ground</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
+                <li><a href="#" onclick="showSection('about')" id="nav-about">About</a></li>
+                <li><a href="https://blog.festground.com/" target="_blank">Blog</a></li>
+                <li><a href="#" onclick="showSection('contact')" id="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="home" class="active">
+            <div class="hero">
+                <h1>Asia's Premier Music Festival Platform</h1>
+                <p>Connecting you to the rhythm of the world. Ticketing, Marketing, and VVIP Services.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Event Ticketing</h3>
+                    <p>We are the official partner of many world-leading events. FestGround is Asia's first and biggest ticket & travel platform for music festivals. Secure your spot at iconic festivals safely and easily.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Event Marketing</h3>
+                    <p>Our data-driven marketing connects organizers with millions of fans. We provide deep insights on Asia's nightlife scene and promote your events to a global audience with precision design and strategy.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>VVIP Concierge</h3>
+                    <p>Sit back and take advantage of the most luxurious travel packages. From backstage tours to ticket upgrades and exclusive tables, we elevate your festival experience to the extraordinary.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h1>About Us</h1>
+            <div class="about-content">
+                <p>Founded in 2017, FestGround started with ticketing major EDM festivals around Asia. As the official partner of many world-leading events, FestGround has quickly become Asia's first and biggest ticket & travel platform for music festivals.</p>
+                <p><strong style="color:white;">What can you find here?</strong></p>
+                <p>You can discover iconic music festivals from around the world, explore nightlife events in each city, or use the concierge service to sit back and take advantage of the most luxurious travel packages.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h1 style="text-align: center;">Contact Us</h1>
+            <div class="contact-container">
+                <p style="text-align: center;">Have a question or looking for VVIP services? Send us a message.</p>
+                
+                <form onsubmit="sendEmail(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Your Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option>General Inquiry</option>
+                            <option>VVIP Concierge</option>
+                            <option>Marketing Partnership</option>
+                            <option>Ticketing Issue</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FestGround. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            if(event) event.preventDefault();
+
+            // Hide all sections
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if(target) target.classList.add('active');
+
+            // Update Nav Highlighting
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const navItem = document.getElementById('nav-' + sectionId);
+            if(navItem) navItem.classList.add('active');
+        }
+
+        function sendEmail(e) {
+            e.preventDefault();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const name = document.getElementById('name').value;
+            const mailtoLink = `mailto:help@festground.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\n\n" + message)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
