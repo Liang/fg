@@ -125,10 +125,12 @@
             display: none;
             background: none;
             border: none;
-            color: var(--accent-color);
+            /* FIX: Explicitly set the color to the bright accent color */
+            color: var(--accent-color); 
             font-size: 2rem;
             cursor: pointer;
             padding: 0 10px;
+            line-height: 1; /* Ensures the triple bar is centered vertically */
         }
 
         /* --- LAYOUT --- */
