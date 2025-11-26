@@ -77,16 +77,20 @@
             backdrop-filter: blur(10px);
         }
 
-        /* --- Logo Styles (Adjusted for Image) --- */
+        /* --- Logo Styles (Adjusted for Image Sizing) --- */
         .logo {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             text-decoration: none;
-            height: 40px; /* Container height for alignment */
+            height: 40px; /* Container height for vertical alignment */
+            width: 150px; /* Added width constraint to the container */
         }
         
         .logo img {
-            height: 30px; /* Set height for the SVG image */
+            max-height: 100%; /* Fixes overflow: image will not exceed 40px height */
+            max-width: 100%;  /* Ensures the image doesn't stretch beyond the container width */
+            height: auto;
             width: auto;
             transition: opacity 0.3s;
         }
