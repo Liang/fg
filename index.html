@@ -6,7 +6,7 @@
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> 
+    <link rel="icon" type="type/png" sizes="16x16" href="favicon-16x16.png"> 
     
     <title>FestGround | Asia's Premier Music Festival Platform</title>
     <meta name="title" content="FestGround | Asia's Premier Music Festival Platform">
@@ -197,21 +197,22 @@
             display: flex;
             gap: 30px;
             margin-bottom: 40px;
-            overflow-x: auto; /* Allow horizontal scroll if many events */
-            padding-bottom: 15px; /* Space for scrollbar */
+            overflow-x: auto; 
+            padding-bottom: 15px; 
         }
 
         .event-card {
-            flex: 0 0 320px; /* Fixed width for event card */
+            flex: 0 0 320px; 
             background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            text-decoration: none;
-            color: var(--primary-text);
+            /* Removed text-decoration: none and color: var(--primary-text) as it is no longer an anchor */
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #333;
+            cursor: pointer; /* Suggests interactivity */
         }
-
+        
+        /* NEW HOVER EFFECT */
         .event-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -219,7 +220,7 @@
 
         .event-banner {
             width: 100%;
-            height: 180px; /* Standard banner height */
+            height: 180px; 
             object-fit: cover;
         }
 
@@ -239,13 +240,19 @@
             margin: 5px 0;
         }
 
+        /* Style the strong tags within event-details for bold text */
+        .event-details strong {
+            color: var(--primary-text);
+            font-weight: 700;
+        }
+
 
         /* --- SERVICES GRID --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px; /* Adjusted margin since H2 is above */
+            margin-top: 30px; 
             margin-bottom: 80px; 
         }
 
@@ -474,10 +481,10 @@
             }
 
             .events-container {
-                padding-bottom: 10px; /* Tighter spacing on mobile */
+                padding-bottom: 10px; 
             }
             .event-card {
-                flex: 0 0 280px; /* Slightly smaller card on mobile */
+                flex: 0 0 280px; 
             }
         }
     </style>
@@ -517,40 +524,38 @@
             <h2 class="section-title">Upcoming Events</h2>
             <div class="events-container">
                 
-                <a href="#" class="event-card" onclick="alert('Link to Neon Countdown 2025 tickets')">
-                    <img src="img/events/neon-countdown-2025.jpg" alt="Neon Countdown 2025 Banner" class="event-banner" loading="lazy">
+                <div class="event-card" onclick="alert('Click to see Neon Countdown 2025 details')">
+                    <img src="https://via.placeholder.com/320x180/F9E609/1A1A1A?text=Neon+Countdown+Banner" alt="Neon Countdown 2025 Banner" class="event-banner" loading="lazy">
                     <div class="event-info">
                         <h3>Neon Countdown 2025</h3>
                         <div class="event-details">
-                            <p>&#x1F4CD; **Location:** Bangkok, Thailand</p>
-                            <p>&#x1F4C5; **Date:** December 30 - 31, 2025</p>
+                            <p>&#x1F4CD; <strong>Location:</strong> Bangkok, Thailand</p>
+                            <p>&#x1F4C5; <strong>Date:</strong> December 30 - 31, 2025</p>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <a href="#" class="event-card" onclick="alert('Link to Future Event tickets')">
-                    <img src="img/events/ultra-japan-2026.png" alt="Ultra Japan 2026 Banner" class="event-banner" loading="lazy">
+                <div class="event-card" onclick="alert('Click to see Future Asia Festival details')">
+                    <img src="https://via.placeholder.com/320x180/2f2f2f/D0D0D0?text=Future+Festival+Banner" alt="Future Festival Banner" class="event-banner" loading="lazy">
                     <div class="event-info">
-                        <h3>Ultra Japan 2026</h3>
+                        <h3>Future Asia Festival</h3>
                         <div class="event-details">
-                            <p>&#x1F4CD; **Location:** Tokyo, Japan</p>
-                            <p>&#x1F4C5; **Date:** Septermber 19 - 20, 2026</p>
+                            <p>&#x1F4CD; <strong>Location:</strong> Tokyo, Japan</p>
+                            <p>&#x1F4C5; <strong>Date:</strong> Q2 2026</p>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <!--
-                <a href="#" class="event-card" onclick="alert('Link to Another Event tickets')">
-                    <img src="img/events/neon-countdown-2025.jpg" alt="Ultra Bali Banner" class="event-banner" loading="lazy">
+                <div class="event-card" onclick="alert('Click to see Ultra Beach Bali 2026 details')">
+                    <img src="https://via.placeholder.com/320x180/3d3d3d/FFFFFF?text=Ultra+Bali+2026+Banner" alt="Ultra Bali Banner" class="event-banner" loading="lazy">
                     <div class="event-info">
                         <h3>Ultra Beach Bali 2026</h3>
                         <div class="event-details">
-                            <p>&#x1F4CD; **Location:** Bali, Indonesia</p>
-                            <p>&#x1F4C5; **Date:** September 2026</p>
+                            <p>&#x1F4CD; <strong>Location:</strong> Bali, Indonesia</p>
+                            <p>&#x1F4C5; <strong>Date:</strong> September 2026</p>
                         </div>
                     </div>
-                </a>
-                -->
+                </div>
 
             </div>
 
