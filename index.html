@@ -6,7 +6,7 @@
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="type/png" sizes="16x16" href="favicon-16x16.png"> 
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> 
     
     <title>FestGround | Asia's Premier Music Festival Platform</title>
     <meta name="title" content="FestGround | Asia's Premier Music Festival Platform">
@@ -139,7 +139,7 @@
         /* --- LAYOUT --- */
         main {
             min-height: calc(100vh - var(--nav-height) - 100px);
-            padding: 40px 5%;
+            padding: 0 5%; 
         }
 
         section {
@@ -147,6 +147,13 @@
             animation: fadeIn 0.5s ease-in-out;
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        /* Ensure the home section fills the width for the banner */
+        #home {
+            max-width: none;
+            margin: 0;
+            padding: 0;
         }
 
         section.active {
@@ -187,18 +194,54 @@
         }
 
         /* --- HOME --- */
+        
+        /* UPDATED HERO BANNER CONTAINER WITH SMOOTH GRADIENT */
+        .hero-banner {
+            /* Background Image and Style */
+            background-image: 
+                /* Gradient Overlay: Darkens the image and fades smoothly to the background color at the bottom */
+                linear-gradient(
+                    rgba(0, 0, 0, 0.4) 0%, 
+                    rgba(0, 0, 0, 0.8) 70%, 
+                    var(--bg-color) 100%
+                ), 
+                url('https://www.festground.com/img/home-hero-bg.png');
+            
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 450px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Removed border-bottom: 3px solid var(--accent-color); */
+            padding: 0 5%; 
+        }
+
         .hero {
             text-align: center;
             padding: 60px 0;
+            width: 100%;
+            max-width: 1200px;
+            color: var(--primary-text); 
+            z-index: 2; 
         }
 
         /* --- UPCOMING EVENTS SECTION --- */
+        .events-container-wrapper {
+             max-width: 1200px; 
+             margin: 0 auto;
+             padding: 40px 0; 
+        }
+
         .events-container {
             display: flex;
             gap: 30px;
             margin-bottom: 40px;
             overflow-x: auto; 
             padding-bottom: 15px; 
+            padding-left: 5%; 
+            padding-right: 5%; 
         }
 
         .event-card {
@@ -206,13 +249,11 @@
             background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            /* Removed text-decoration: none and color: var(--primary-text) as it is no longer an anchor */
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #333;
-            cursor: pointer; /* Suggests interactivity */
+            cursor: pointer; 
         }
         
-        /* NEW HOVER EFFECT */
         .event-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -240,7 +281,6 @@
             margin: 5px 0;
         }
 
-        /* Style the strong tags within event-details for bold text */
         .event-details strong {
             color: var(--primary-text);
             font-weight: 700;
@@ -248,6 +288,12 @@
 
 
         /* --- SERVICES GRID --- */
+        .services-grid-wrapper {
+             max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 5%;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -445,11 +491,15 @@
             }
             
             main {
-                padding: 20px 4%;
+                padding: 0 4%;
             }
             
             h1 {
                 font-size: 2rem;
+            }
+
+            .hero-banner {
+                min-height: 350px;
             }
             
             .services-grid {
@@ -516,14 +566,17 @@
     <main>
         
         <section id="home" class="active">
-            <div class="hero">
-                <h1>Asia's Premier Music Festival Platform</h1>
-                <p>Connecting you to the rhythm of the world. Ticketing, Marketing, and VVIP Services.</p>
+            <div class="hero-banner">
+                <div class="hero">
+                    <h1>Asia's Premier Music Festival Platform</h1>
+                    <p>Connecting you to the rhythm of the world. Ticketing, Marketing, and VVIP Services.</p>
+                </div>
             </div>
-
-            <h2 class="section-title">Upcoming Events</h2>
-            <div class="events-container">
-                
+            
+            <div class="events-container-wrapper">
+                 <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-container">
+                    
                 <div class="event-card">
                     <img src="img/events/neon-countdown-2025.jpg" alt="Neon Countdown 2025 Banner" class="event-banner" loading="lazy">
                     <div class="event-info">
@@ -558,24 +611,39 @@
                     </div>
                 </div>
                 -->
+                    
+                </div>
 
+                    <div class="event-card" onclick="alert('Click to see Ultra Beach Bali 2026 details')">
+                        <img src="https://via.placeholder.com/320x180/3d3d3d/FFFFFF?text=Ultra+Bali+2026+Banner" alt="Ultra Bali Banner" class="event-banner" loading="lazy">
+                        <div class="event-info">
+                            <h3>Ultra Beach Bali 2026</h3>
+                            <div class="event-details">
+                                <p>&#x1F4CD; <strong>Location:</strong> Bali, Indonesia</p>
+                                <p>&#x1F4C5; <strong>Date:</strong> September 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Event Ticketing</h3>
-                    <p>We are the official partner of many world-leading events. FestGround is Asia's first and biggest ticket & travel platform for music festivals. Secure your spot at iconic festivals safely and easily.</p>
-                </div>
+            <div class="services-grid-wrapper">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Event Ticketing</h3>
+                        <p>We are the official partner of many world-leading events. FestGround is Asia's first and biggest ticket & travel platform for music festivals. Secure your spot at iconic festivals safely and easily.</p>
+                    </div>
 
-                <div class="service-card">
-                    <h3>Event Marketing</h3>
-                    <p>Our data-driven marketing connects organizers with millions of fans. We provide deep insights on Asia's nightlife scene and promote your events to a global audience with precision design and strategy.</p>
-                </div>
+                    <div class="service-card">
+                        <h3>Event Marketing</h3>
+                        <p>Our data-driven marketing connects organizers with millions of fans. We provide deep insights on Asia's nightlife scene and promote your events to a global audience with precision design and strategy.</p>
+                    </div>
 
-                <div class="service-card">
-                    <h3>VVIP Concierge</h3>
-                    <p>Sit back and take advantage of the most luxurious travel packages. From backstage tours to ticket upgrades and exclusive tables, we elevate your festival experience to the extraordinary.</p>
+                    <div class="service-card">
+                        <h3>VVIP Concierge</h3>
+                        <p>Sit back and take advantage of the most luxurious travel packages. From backstage tours to ticket upgrades and exclusive tables, we elevate your festival experience to the extraordinary.</p>
+                    </div>
                 </div>
             </div>
 
