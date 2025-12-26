@@ -31,6 +31,7 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
     <style>
         /* --- FESTGROUND COLOR SCHEMA --- */
         :root {
@@ -85,7 +86,6 @@
             max-height: 40px; 
             max-width: 100%;  
             height: auto;
-            transition: opacity 0.3s;
         }
 
         nav ul {
@@ -102,7 +102,6 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-size: 14px;
@@ -119,13 +118,11 @@
             color: var(--accent-color); 
             font-size: 2rem;
             cursor: pointer;
-            padding: 0 10px;
-            line-height: 1; 
         }
 
         /* --- LAYOUT --- */
         main {
-            min-height: calc(100vh - var(--nav-height) - 100px);
+            min-height: calc(100vh - var(--nav-height) - 150px);
             padding: 0 5%; 
         }
 
@@ -181,15 +178,10 @@
         /* --- HERO --- */
         .hero-banner {
             background-image: 
-                linear-gradient(
-                    rgba(0, 0, 0, 0.4) 0%, 
-                    rgba(0, 0, 0, 0.8) 70%, 
-                    var(--bg-color) 100%
-                ), 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8) 70%, var(--bg-color)), 
                 url('https://www.festground.com/img/home-hero-bg.png');
             background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
+            background-position: center;
             min-height: 450px; 
             display: flex;
             align-items: center;
@@ -199,14 +191,11 @@
 
         .hero {
             text-align: center;
-            padding: 60px 0;
             width: 100%;
             max-width: 1200px;
-            color: var(--primary-text); 
-            z-index: 2; 
         }
 
-        /* --- EVENTS --- */
+        /* --- EVENTS (Horizontal Scroll) --- */
         .events-container-wrapper {
              max-width: 1200px; 
              margin: 0 auto;
@@ -216,11 +205,8 @@
         .events-container {
             display: flex;
             gap: 30px;
-            margin-bottom: 40px;
             overflow-x: auto; 
-            padding-bottom: 15px; 
-            padding-left: 5%; 
-            padding-right: 5%; 
+            padding: 10px 5% 25px 5%; 
         }
 
         .event-card {
@@ -228,7 +214,6 @@
             background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #333;
         }
         
@@ -242,31 +227,12 @@
             padding: 15px;
         }
 
-        .event-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-        }
-
-        .event-details p {
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-            margin: 5px 0;
-        }
-
         /* --- SERVICES --- */
-        .services-grid-wrapper {
-             max-width: 1200px;
-             margin: 0 auto;
-             padding: 0 5%;
-        }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px; 
-            margin-bottom: 80px; 
+            margin: 40px 0 80px 0;
         }
 
         .service-card {
@@ -274,7 +240,7 @@
             padding: 30px;
             border-radius: 8px;
             border: 1px solid #333;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: 0.3s;
         }
 
         .service-card:hover {
@@ -298,14 +264,10 @@
 
         .partners-logo {
             flex-shrink: 0; 
-            width: 200px; 
-            margin: 0 25px; 
+            width: 180px; 
+            margin: 0 30px; 
             filter: grayscale(100%) brightness(150%); 
-            transition: filter 0.3s;
         }
-
-        .partners-logo:hover { filter: grayscale(0%) brightness(100%); }
-        .partners-logo img { max-width: 100%; object-fit: contain; }
 
         @keyframes partners-scroll {
             0% { transform: translateX(0); }
@@ -315,7 +277,7 @@
         /* --- CONTACT FORM --- */
         .contact-container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 40px auto;
             background-color: var(--card-bg);
             padding: 40px;
             border-radius: 8px;
@@ -340,10 +302,43 @@
             border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
-            text-transform: uppercase;
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- FOOTER (Fixed & RWA Compliant) --- */
+        footer {
+            padding: 40px 5%;
+            background-color: #111;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             nav ul {
@@ -354,17 +349,22 @@
                 left: 0;
                 width: 100%;
                 background-color: var(--card-bg);
+                border-top: 1px solid #333;
             }
             nav.mobile-menu ul { display: flex; }
             nav ul li { margin: 0; border-bottom: 1px solid #333; }
             nav ul li a { display: block; padding: 15px; text-align: center; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <header>
         <a href="#" class="logo" onclick="showSection('home')">
-            <img src="logo.png" alt="FestGround Logo" loading="lazy">
+            <img src="logo.png" alt="FestGround Logo">
         </a>
         <nav id="main-nav">
             <ul>
@@ -374,7 +374,7 @@
                 <li><a href="#" onclick="showSection('contact')" id="nav-contact">Contact</a></li>
             </ul>
         </nav>
-        <button class="menu-toggle" onclick="toggleMobileMenu()">&#x2261;</button>
+        <button class="menu-toggle" aria-label="Menu" onclick="toggleMobileMenu()">&#x2261;</button>
     </header>
 
     <main>
@@ -390,28 +390,23 @@
                 <h2 class="section-title">Upcoming Events</h2>
                 <div class="events-container">
                     <div class="event-card">
-                        <img src="img/events/neon-countdown-2025.jpg" alt="Neon Countdown 2025 Banner" class="event-banner" loading="lazy">
+                        <img src="img/events/neon-countdown-2025.jpg" alt="Neon Countdown 2025" class="event-banner" loading="lazy">
                         <div class="event-info">
                             <h3>Neon Countdown 2025</h3>
-                            <div class="event-details">
-                                <p>&#x1F4CD; <strong>Location:</strong> Bangkok, Thailand</p>
-                                <p>&#x1F4C5; <strong>Date:</strong> December 30 - 31, 2025</p>
-                            </div>
+                            <p>&#x1F4CD; Bangkok, Thailand</p>
+                            <p>&#x1F4C5; Dec 30 - 31, 2025</p>
                         </div>
                     </div>
 
                     <div class="event-card">
-                        <img src="img/events/ultra-japan-2026.png" alt="Ultra Japan 2026 Banner" class="event-banner" loading="lazy">
+                        <img src="img/events/ultra-japan-2026.png" alt="Ultra Japan 2026" class="event-banner" loading="lazy">
                         <div class="event-info">
                             <h3>Ultra Japan 2026</h3>
-                            <div class="event-details">
-                                <p>&#x1F4CD; <strong>Location:</strong> Tokyo, Japan</p>
-                                <p>&#x1F4C5; <strong>Date:</strong> September 19 - 20, 2026</p>
-                            </div>
+                            <p>&#x1F4CD; Tokyo, Japan</p>
+                            <p>&#x1F4C5; Sep 19 - 20, 2026</p>
                         </div>
                     </div>
-
-                    </div>
+                </div>
             </div>
 
             <div class="services-grid-wrapper">
@@ -419,15 +414,15 @@
                 <div class="services-grid">
                     <div class="service-card">
                         <h3>Event Ticketing</h3>
-                        <p>We are the official partner of many world-leading events. Secure your spot at iconic festivals safely and easily.</p>
+                        <p>Official partner of world-leading festivals. Secure your spot safely and easily.</p>
                     </div>
                     <div class="service-card">
                         <h3>Event Marketing</h3>
-                        <p>Our data-driven marketing connects organizers with millions of fans across Asia's nightlife scene.</p>
+                        <p>Data-driven insights connecting organizers with millions of fans across Asia.</p>
                     </div>
                     <div class="service-card">
                         <h3>VVIP Concierge</h3>
-                        <p>From backstage tours to ticket upgrades and exclusive tables, we elevate your experience.</p>
+                        <p>Backstage tours, luxury travel packages, and exclusive table services.</p>
                     </div>
                 </div>
             </div>
@@ -435,42 +430,40 @@
             <div class="partners-section">
                 <h2>Our Key Event Partners</h2>
                 <div class="partners-loop-container">
-                    <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea"></div>
-                    <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan"></div>
-                    <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan"></div>
-                    <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong"></div>
-                    <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown"></div>
-                    <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea"></div>
-                    <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan"></div>
-                    <div class="partners-logo"><img src="img/ultra-taiwan.png" alt="Ultra Taiwan"></div>
-                    <div class="partners-logo"><img src="img/ultra-hongkong.png" alt="Ultra Hong Kong"></div>
-                    <div class="partners-logo"><img src="img/neon-countdown.png" alt="Neon Countdown"></div>
+                    <div class="partners-logo"><img src="img/ultra-korea.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/ultra-japan.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/neon-countdown.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/ultra-korea.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/ultra-japan.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/s2o-taiwan.png" alt="Partner"></div>
+                    <div class="partners-logo"><img src="img/neon-countdown.png" alt="Partner"></div>
                 </div>
             </div>
         </section>
 
         <section id="about">
-            <h1>About Us</h1>
-            <div class="about-content">
-                <p>Founded in 2017, FestGround has quickly become Asia's first and biggest ticket & travel platform for music festivals.</p>
+            <h2 class="section-title">About FestGround</h2>
+            <div class="contact-container">
+                <p>Founded in 2017, FestGround has become Asia's premier ticket & travel platform for music festivals.</p>
             </div>
         </section>
 
         <section id="contact">
-            <h1 style="text-align: center;">Contact Us</h1>
+            <h2 class="section-title" style="text-align: center; border: none;">Contact Us</h2>
             <div class="contact-container">
                 <form onsubmit="sendEmail(event)">
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" id="name" required placeholder="Your Name">
+                        <input type="text" id="name" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address</label>
-                        <input type="email" id="email" required placeholder="you@example.com">
+                        <input type="email" id="email" required>
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea id="message" rows="5" required placeholder="How can we help?"></textarea>
+                        <textarea id="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Inquiry</button>
                 </form>
@@ -479,19 +472,24 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 FestGround. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 FestGround. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </div>
     </footer>
 
     <script>
         function showSection(sectionId) {
-            if(event) event.preventDefault();
-            const nav = document.getElementById('main-nav');
-            nav.classList.remove('mobile-menu');
+            if(window.event) window.event.preventDefault();
+            document.getElementById('main-nav').classList.remove('mobile-menu');
             document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             document.querySelectorAll('#main-nav a').forEach(link => link.classList.remove('active'));
             const navItem = document.getElementById('nav-' + sectionId);
             if(navItem) navItem.classList.add('active');
+            window.scrollTo(0, 0);
         }
         
         function toggleMobileMenu() {
