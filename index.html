@@ -61,8 +61,8 @@
 
         /* --- LAYOUT --- */
         main { padding: 0 5%; min-height: 80vh; }
-        section { display: none; animation: fadeIn 0.5s ease; max-width: 1200px; margin: 0 auto; }
-        #home { max-width: none; margin: 0; padding: 0; }
+        section { display: none; animation: fadeIn 0.5s ease; max-width: 1200px; margin: 0 auto; padding-bottom: 60px; }
+        #home { max-width: none; margin: 0; padding: 0; padding-bottom: 80px; }
         section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -89,16 +89,25 @@
         .hero p { color: var(--secondary-text); font-size: 1.1rem; }
 
         /* --- EVENTS (Horizontal Scroll) --- */
-        .events-container { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; }
+        .events-container { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0 40px; scrollbar-width: none; }
         .events-container::-webkit-scrollbar { display: none; }
         .event-card { flex: 0 0 300px; background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #333; }
         .event-banner { width: 100%; height: 160px; object-fit: cover; }
         .event-info { padding: 15px; }
         .event-info h3 { color: var(--accent-color); margin-bottom: 5px; }
 
-        /* --- FIXED PARTNERS LOOP --- */
-        .partners-section { padding: 80px 0; text-align: center; overflow: hidden; background: #151515; }
-        .partners-section h2 { margin-bottom: 40px; font-size: 1.8rem; }
+        /* --- PARTNERS LOOP (FIXED SPACING) --- */
+        .partners-section { 
+            padding: 100px 0; /* Increased vertical padding */
+            text-align: center; 
+            overflow: hidden; 
+            background: #151515; 
+        }
+        .partners-section h2 { 
+            margin-bottom: 60px; /* Increased space between Title and Logos */
+            font-size: 1.8rem; 
+            color: #fff;
+        }
         
         .partners-loop-container { 
             display: flex; 
@@ -108,8 +117,8 @@
         
         .partners-logo {
             flex: 0 0 auto;
-            width: 180px;  /* Uniform width box */
-            height: 60px;  /* Uniform height box */
+            width: 180px; 
+            height: 60px; 
             margin: 0 35px;
             display: flex;
             align-items: center;
@@ -137,7 +146,7 @@
         input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; background: #1a1a1a; border: 1px solid #444; color: #fff; border-radius: 4px; }
         .submit-btn { width: 100%; padding: 15px; background: var(--accent-gradient); border: none; font-weight: bold; cursor: pointer; border-radius: 4px; text-transform: uppercase; }
 
-        /* --- FOOTER RWA --- */
+        /* --- FOOTER --- */
         footer {
             padding: 60px 5%;
             background-color: #111;
@@ -161,6 +170,8 @@
             nav ul li { margin: 0; border-bottom: 1px solid #333; text-align: center; }
             nav ul li a { display: block; padding: 15px; }
             .hero h1 { font-size: 2rem; }
+            .partners-section { padding: 60px 0; }
+            .partners-section h2 { margin-bottom: 40px; }
         }
     </style>
 </head>
@@ -188,15 +199,17 @@
                 </div>
             </div>
             
-            <h2 class="section-title">Upcoming Events</h2>
-            <div class="events-container">
-                <div class="event-card">
-                    <img src="img/events/neon-countdown-2025.jpg" class="event-banner" alt="Neon Countdown">
-                    <div class="event-info"><h3>Neon Countdown 2025</h3><p>📍 Bangkok, Thailand</p><p>📅 Dec 30 - 31, 2025</p></div>
-                </div>
-                <div class="event-card">
-                    <img src="img/events/ultra-japan-2026.png" class="event-banner" alt="Ultra Japan">
-                    <div class="event-info"><h3>Ultra Japan 2026</h3><p>📍 Tokyo, Japan</p><p>📅 Sep 19 - 20, 2026</p></div>
+            <div style="max-width:1200px; margin: 0 auto; padding: 0 5%;">
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-container">
+                    <div class="event-card">
+                        <img src="img/events/neon-countdown-2025.jpg" class="event-banner" alt="Neon Countdown">
+                        <div class="event-info"><h3>Neon Countdown 2025</h3><p>📍 Bangkok, Thailand</p><p>📅 Dec 30 - 31, 2025</p></div>
+                    </div>
+                    <div class="event-card">
+                        <img src="img/events/ultra-japan-2026.png" class="event-banner" alt="Ultra Japan">
+                        <div class="event-info"><h3>Ultra Japan 2026</h3><p>📍 Tokyo, Japan</p><p>📅 Sep 19 - 20, 2026</p></div>
+                    </div>
                 </div>
             </div>
 
@@ -230,8 +243,8 @@
         <section id="about">
             <h2 class="section-title">About FestGround</h2>
             <div style="padding: 20px 0;">
-                <p>Founded in 2017, FestGround has grown into Asia's premier ticket & travel platform for music festivals. We bridge the gap between world-class organizers and music fans across the globe.</p>
-                <p>Our services include official primary ticketing, international marketing, and luxury VVIP table concierge services for the most iconic events in the dance music scene.</p>
+                <p>Founded in 2017, FestGround has grown into Asia's premier ticket & travel platform for music festivals.</p>
+                <p>We provide official primary ticketing, international marketing, and luxury VVIP table concierge services.</p>
             </div>
         </section>
 
@@ -269,11 +282,9 @@
             if(navLink) navLink.classList.add('active');
             window.scrollTo(0,0);
         }
-        
         function toggleMobileMenu() { 
             document.getElementById('main-nav').classList.toggle('mobile-menu'); 
         }
-        
         function sendEmail(e) {
             e.preventDefault();
             const n = document.getElementById('name').value;

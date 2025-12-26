@@ -12,19 +12,10 @@
             --primary-text: #ffffff;
             --secondary-text: #d0d0d0;
             --accent-color: #f9e609;
-            --accent-gradient: linear-gradient(90deg, #f9e609 0%, #ffc600 100%);
             --nav-height: 70px;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            line-height: 1.6;
-        }
-
-        /* --- SHARED HEADER STYLE --- */
+        body { background-color: var(--bg-color); color: var(--primary-text); line-height: 1.6; }
         header {
             background-color: var(--nav-bg);
             height: var(--nav-height);
@@ -34,74 +25,27 @@
             padding: 0 5%;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #333; 
+            border-bottom: 1px solid #333;
             backdrop-filter: blur(10px);
+            z-index: 1000;
         }
-
-        .logo img { height: 40px; cursor: pointer; }
-
+        .logo img { height: 40px; }
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
-        nav ul li a {
-            color: var(--primary-text);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        nav ul li a:hover { color: var(--accent-color); }
-
-        .menu-toggle { display: none; background: none; border: none; color: var(--accent-color); font-size: 2rem; cursor: pointer; }
-
-        /* --- POLICY CONTENT STYLE --- */
-        .policy-main {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 5%;
-            min-height: 70vh;
-        }
-
-        h1 { font-size: 2.5rem; margin-bottom: 20px; color: #fff; }
-        h2 { 
-            font-size: 1.4rem; 
-            color: var(--accent-color); 
-            margin-top: 40px; 
-            margin-bottom: 15px;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 15px;
-        }
+        nav ul li a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 14px; }
+        .menu-toggle { display: none; background: none; border: none; color: var(--accent-color); font-size: 2rem; }
+        
+        .policy-main { max-width: 900px; margin: 60px auto; padding: 0 5% 100px; }
+        h1 { font-size: 2.5rem; margin-bottom: 30px; }
+        h2 { font-size: 1.4rem; color: var(--accent-color); margin-top: 50px; margin-bottom: 20px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
         p, li { color: var(--secondary-text); margin-bottom: 15px; }
-        ul { padding-left: 20px; margin-bottom: 20px; }
-
-        /* --- FOOTER RWA --- */
-        footer {
-            padding: 50px 5%;
-            background-color: #111;
-            border-top: 1px solid #333;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        /* --- MOBILE RESPONSIVE --- */
+        ul { padding-left: 20px; }
+        
+        footer { padding: 60px 5%; background-color: #111; border-top: 1px solid #333; text-align: center; }
+        
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 70px; 
-                left: 0; 
-                width: 100%; 
-                background: var(--card-bg); 
-            }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--card-bg); }
             nav.mobile-menu ul { display: flex; }
             nav ul li { margin: 0; border-bottom: 1px solid #333; text-align: center; }
             nav ul li a { display: block; padding: 15px; }
@@ -109,11 +53,8 @@
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="logo.png" alt="FestGround"></a>
-        </div>
+        <div class="logo"><a href="index.html"><img src="logo.png" alt="FestGround"></a></div>
         <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -127,55 +68,20 @@
 
     <main class="policy-main">
         <h1>Privacy Policy</h1>
-        <p><strong>Last Updated: December 26, 2025</strong></p>
-
+        <p>Last Updated: December 26, 2025</p>
         <section>
-            <h2>1. Universal Privacy Commitment</h2>
-            <p>FestGround is committed to providing a secure and transparent environment for music fans. This policy outlines how we handle data across all our digital services, ensuring compliance with global standards and platform-specific requirements.</p>
+            <h2>1. General Data Practices</h2>
+            <p>FestGround collects data to provide official ticketing and VVIP services. We prioritize your privacy and transparency.</p>
         </section>
-
         <section>
-            <h2>2. Data Collection and Usage</h2>
-            <p>We collect information to provide better services to all our users. This includes:</p>
-            <ul>
-                <li><strong>Identity Data:</strong> Name and email address when you contact our VVIP concierge.</li>
-                <li><strong>Technical Data:</strong> IP addresses and browser types for security and optimization.</li>
-                <li><strong>Interaction Data:</strong> Information on how you interact with our festival listings.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>3. Meta (Facebook) Platform Integration</h2>
-            <p>In accordance with Meta Platform Terms, we process Platform Data to facilitate user authentication and personalized event services. We do not share this data with third parties for advertising purposes.</p>
-            <p><strong>Data Deletion Instructions:</strong> As required by Meta Platform Term 4.a, users can request the removal of their data at any time:</p>
-            <ul>
-                <li>Navigate to your Facebook Profile "Settings & Privacy" > "Settings" > "Apps and Websites".</li>
-                <li>Locate <strong>FestGround</strong> and select "Remove".</li>
-                <li>For manual data deletion requests, please email <strong>help@festground.com</strong> with your registered account details.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>4. Information Security</h2>
-            <p>We implement industry-standard security measures to protect your information from unauthorized access, alteration, or destruction. Your data is stored on secure servers and is only accessible by authorized personnel.</p>
-        </section>
-
-        <section>
-            <h2>5. Contact Our Privacy Team</h2>
-            <p>If you have questions regarding this policy or our data practices, please contact us at help@festground.com.</p>
+            <h2>2. Meta (Facebook) Platform Compliance</h2>
+            <p>In accordance with Meta Platform Terms, we process Platform Data only for authorized event services. We do not sell user data.</p>
+            <p><strong>Deletion Instructions:</strong> Remove FestGround via Facebook "Settings & Privacy" > "Apps and Websites" or email help@festground.com.</p>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 FestGround. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer><p>&copy; 2025 FestGround. All rights reserved.</p></footer>
 
-    <script>
-        function toggleMobileMenu() {
-            document.getElementById('main-nav').classList.toggle('mobile-menu');
-        }
-    </script>
+    <script>function toggleMobileMenu(){document.getElementById('main-nav').classList.toggle('mobile-menu');}</script>
 </body>
 </html>
