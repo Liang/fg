@@ -12,10 +12,20 @@
             --primary-text: #ffffff;
             --secondary-text: #d0d0d0;
             --accent-color: #f9e609;
+            --accent-gradient: linear-gradient(90deg, #f9e609 0%, #ffc600 100%);
             --nav-height: 70px;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--primary-text); line-height: 1.6; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION (Matches Index) --- */
         header {
             background-color: var(--nav-bg);
             height: var(--nav-height);
@@ -25,36 +35,98 @@
             padding: 0 5%;
             position: sticky;
             top: 0;
-            border-bottom: 1px solid #333;
-            backdrop-filter: blur(10px);
             z-index: 1000;
+            border-bottom: 1px solid #333; 
+            backdrop-filter: blur(10px);
         }
-        .logo img { height: 40px; }
+
+        .logo img { height: 40px; cursor: pointer; }
+
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
-        nav ul li a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 14px; }
-        .menu-toggle { display: none; background: none; border: none; color: var(--accent-color); font-size: 2rem; }
-        
-        .policy-main { max-width: 900px; margin: 60px auto; padding: 0 5% 100px; }
-        h1 { font-size: 2.5rem; margin-bottom: 30px; }
-        h2 { font-size: 1.4rem; color: var(--accent-color); margin-top: 50px; margin-bottom: 20px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
-        p, li { color: var(--secondary-text); margin-bottom: 15px; }
+        nav ul li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        nav ul li a:hover { color: var(--accent-color); }
+
+        .menu-toggle { display: none; background: none; border: none; color: var(--accent-color); font-size: 2rem; cursor: pointer; }
+
+        /* --- LAYOUT WRAPPER --- */
+        .content-wrap {
+            max-width: 900px; /* Narrower for better readability of text */
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        h1 { 
+            font-size: 2.8rem; 
+            background: var(--accent-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            margin-bottom: 40px; 
+        }
+
+        h2 { 
+            font-size: 1.4rem; 
+            color: var(--accent-color); 
+            margin-top: 50px; 
+            margin-bottom: 20px; 
+            border-left: 3px solid var(--accent-color); 
+            padding-left: 15px; 
+        }
+
+        p, li { 
+            color: var(--secondary-text); 
+            margin-bottom: 20px; 
+            font-size: 1rem;
+        }
+
         ul { padding-left: 20px; }
-        
-        footer { padding: 60px 5%; background-color: #111; border-top: 1px solid #333; text-align: center; }
-        
+
+        /* --- FOOTER (Matches Index) --- */
+        footer {
+            padding: 80px 5%;
+            background-color: #111;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--card-bg); }
+            nav ul { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 70px; 
+                left: 0; 
+                width: 100%; 
+                background: var(--card-bg); 
+                border-bottom: 1px solid #333; 
+            }
             nav.mobile-menu ul { display: flex; }
-            nav ul li { margin: 0; border-bottom: 1px solid #333; text-align: center; }
-            nav ul li a { display: block; padding: 15px; }
+            nav ul li { margin: 0; border-bottom: 1px solid #333; }
+            nav ul li a { display: block; padding: 20px; text-align: center; }
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo"><a href="index.html"><img src="logo.png" alt="FestGround"></a></div>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="FestGround"></a>
+        </div>
         <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -66,22 +138,50 @@
         <button class="menu-toggle" onclick="toggleMobileMenu()">&#x2261;</button>
     </header>
 
-    <main class="policy-main">
-        <h1>Privacy Policy</h1>
-        <p>Last Updated: December 26, 2025</p>
-        <section>
-            <h2>1. General Data Practices</h2>
-            <p>FestGround collects data to provide official ticketing and VVIP services. We prioritize your privacy and transparency.</p>
-        </section>
-        <section>
-            <h2>2. Meta (Facebook) Platform Compliance</h2>
-            <p>In accordance with Meta Platform Terms, we process Platform Data only for authorized event services. We do not sell user data.</p>
-            <p><strong>Deletion Instructions:</strong> Remove FestGround via Facebook "Settings & Privacy" > "Apps and Websites" or email help@festground.com.</p>
-        </section>
+    <main>
+        <div class="content-wrap">
+            <h1>Privacy Policy</h1>
+            <p><strong>Last Updated: December 26, 2025</strong></p>
+
+            <section>
+                <h2>1. Data Collection</h2>
+                <p>FestGround collects personal information when you use our services, including names and email addresses provided via inquiry forms, and technical data such as IP addresses. We use this data strictly to provide festival ticketing and VVIP concierge services.</p>
+            </section>
+
+            <section>
+                <h2>2. Meta (Facebook) Platform Data</h2>
+                <p>We comply with <strong>Meta Platform Term 4.a</strong>. We only request necessary information for social authentication and do not share, sell, or transfer Platform Data to third-party brokers or ad networks.</p>
+                <p><strong>Data Deletion Instructions:</strong></p>
+                <ul>
+                    <li>Go to your Facebook Profile's "Settings & Privacy" > "Settings".</li>
+                    <li>Select "Apps and Websites" and find <strong>FestGround</strong>.</li>
+                    <li>Click the "Remove" button next to our app name.</li>
+                    <li>Alternatively, send a deletion request to <strong>help@festground.com</strong>.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Cookies and Security</h2>
+                <p>Our website uses cookies to enhance your browsing experience. We implement industry-standard security protocols to protect all stored information from unauthorized access.</p>
+            </section>
+
+            <section>
+                <h2>4. Contact Us</h2>
+                <p>If you have any questions regarding your data or this policy, please reach out to our privacy team at <strong>help@festground.com</strong>.</p>
+            </section>
+        </div>
     </main>
 
-    <footer><p>&copy; 2025 FestGround. All rights reserved.</p></footer>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 FestGround. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <script>function toggleMobileMenu(){document.getElementById('main-nav').classList.toggle('mobile-menu');}</script>
+    <script>
+        function toggleMobileMenu() { 
+            document.getElementById('main-nav').classList.toggle('mobile-menu'); 
+        }
+    </script>
 </body>
 </html>
