@@ -129,7 +129,7 @@
         .hero { max-width: 1200px; z-index: 2; }
         .hero p { color: var(--secondary-text); font-size: 1.2rem; }
 
-        /* --- EVENTS (Restored Horizontal Scroll) --- */
+        /* --- EVENTS --- */
         .events-container { display: flex; gap: 30px; overflow-x: auto; padding: 20px 0 40px; scrollbar-width: none; }
         .events-container::-webkit-scrollbar { display: none; }
         
@@ -147,7 +147,7 @@
         .event-info h3 { color: var(--accent-color); font-size: 1.4rem; margin-bottom: 5px; }
         .event-details p { font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 5px; }
 
-        /* --- SERVICES GRID (Restored) --- */
+        /* --- SERVICES GRID --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -164,23 +164,37 @@
         .service-card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
         .service-card h3 { margin-bottom: 15px; font-size: 1.3rem; color: #fff; }
 
-        /* --- PARTNERS LOOP (Unified Background) --- */
+        /* --- PARTNERS LOOP (Consistent Height Updated) --- */
         .partners-section { padding: 80px 0; text-align: center; overflow: hidden; background-color: var(--bg-color); }
         .partners-section h2 { margin-bottom: 60px; font-size: 2rem; color: #fff; }
         
         .partners-loop-container { display: flex; width: fit-content; animation: partners-scroll 40s linear infinite; }
+        
         .partners-logo {
-            flex-shrink: 0; width: 200px; margin: 0 25px;
-            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; 
+            width: 200px; /* Container width */
+            height: 80px; /* FORCED CONSISTENT HEIGHT */
+            margin: 0 30px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
             filter: grayscale(100%) brightness(150%);
             transition: filter 0.3s;
         }
+        
         .partners-logo:hover { filter: grayscale(0%) brightness(100%); }
-        .partners-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        
+        .partners-logo img { 
+            max-width: 100%; 
+            max-height: 100%; /* Ensures logo doesn't exceed the 80px container height */
+            height: auto;
+            width: auto;
+            object-fit: contain; /* Maintains aspect ratio while fitting height */
+        }
 
         @keyframes partners-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- ABOUT & CONTACT (Restored Content) --- */
+        /* --- ABOUT & CONTACT --- */
         .about-content { background-color: var(--card-bg); padding: 40px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
         .contact-container { max-width: 600px; margin: 0 auto 100px; background: var(--card-bg); padding: 40px; border-radius: 8px; border: 1px solid #333; }
         .form-group { margin-bottom: 20px; }
@@ -201,6 +215,7 @@
             nav ul li a { display: block; padding: 15px; text-align: center; }
             h1 { font-size: 2rem; }
             .hero-banner { min-height: 350px; }
+            .partners-logo { height: 60px; width: 150px; margin: 0 15px; } /* Slightly smaller for mobile */
         }
     </style>
 </head>
@@ -251,16 +266,6 @@
                             <div class="event-details">
                                 <p>📍 <strong>Location:</strong> Tokyo, Japan</p>
                                 <p>📅 <strong>Date:</strong> September 19 - 20, 2026</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event-card">
-                        <img src="https://via.placeholder.com/320x180/3d3d3d/FFFFFF?text=Ultra+Bali+2026" alt="Ultra Bali" class="event-banner">
-                        <div class="event-info">
-                            <h3>Ultra Beach Bali 2026</h3>
-                            <div class="event-details">
-                                <p>📍 <strong>Location:</strong> Bali, Indonesia</p>
-                                <p>📅 <strong>Date:</strong> September 2026</p>
                             </div>
                         </div>
                     </div>
