@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> 
+
     <title>FestGround | Asia's Premier Music Festival Platform</title>
-    
-    <meta name="description" content="Asia's leading platform for music festival ticketing and VVIP concierge services. Official partner for Ultra, S2O, and major EDM events.">
-    
+    <meta name="title" content="FestGround | Asia's Premier Music Festival Platform">
+    <meta name="description" content="Asia's leading platform for music festival ticketing, event marketing, and VVIP concierge services. Official partner for Ultra, S2O, and major EDM events.">
+    <meta name="keywords" content="FestGround, Music Festival, EDM, Asia Ticketing, VVIP Service, Event Marketing, Rave, Nightlife">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://www.festground.com/">
+    <meta property="og:title" content="FestGround | Asia's Premier Music Festival Platform">
+    <meta property="og:description" content="Secure your spot at iconic festivals safely and easily. We provide official ticketing and luxury VVIP concierge services across Asia.">
+    <meta property="og:image" content="https://www.festground.com/img/logo/festground_logo_white.svg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.festground.com/">
+    <meta property="twitter:title" content="FestGround | Asia's Premier Music Festival Platform">
+    <meta property="twitter:description" content="Asia's leading platform for music festival ticketing, event marketing, and VVIP concierge services.">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
     <style>
         :root {
             --bg-color: #1a1a1a;
@@ -19,13 +44,14 @@
             --nav-height: 70px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
 
         body {
             background-color: var(--bg-color);
             color: var(--primary-text);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- NAVIGATION --- */
@@ -43,7 +69,8 @@
             backdrop-filter: blur(10px);
         }
 
-        .logo img { height: 40px; cursor: pointer; }
+        .logo { display: flex; align-items: center; text-decoration: none; width: 200px; }
+        .logo img { max-height: 40px; width: auto; }
 
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
@@ -53,26 +80,29 @@
             text-transform: uppercase;
             font-size: 14px;
             font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
         }
         nav ul li a:hover, nav ul li a.active { color: var(--accent-color); }
 
         .menu-toggle { display: none; background: none; border: none; color: var(--accent-color); font-size: 2rem; cursor: pointer; }
 
         /* --- LAYOUT --- */
-        main { min-height: 80vh; }
-        section { display: none; animation: fadeIn 0.5s ease; width: 100%; }
+        main { min-height: calc(100vh - var(--nav-height) - 100px); }
+        section { display: none; animation: fadeIn 0.5s ease-in-out; width: 100%; }
         section.active { display: block; }
         
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(10px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
+        .content-wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
 
-        /* Standardized Container for content consistency */
-        .content-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        h1 {
+            font-size: 2.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .section-title {
@@ -85,148 +115,102 @@
 
         /* --- HERO --- */
         .hero-banner {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(26,26,26,1)), url('https://www.festground.com/img/home-hero-bg.png');
+            background: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 70%, var(--bg-color) 100%), 
+                        url('https://www.festground.com/img/home-hero-bg.png');
             background-size: cover;
-            background-position: center;
-            height: 480px;
+            background-position: center center;
+            min-height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 0 5%;
         }
-        .hero h1 { font-size: 2.8rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; line-height: 1.2; }
+        .hero { max-width: 1200px; z-index: 2; }
         .hero p { color: var(--secondary-text); font-size: 1.2rem; }
 
-        /* --- EVENTS (Horizontal Scroll) --- */
-        .events-container { 
-            display: flex; 
-            gap: 25px; 
-            overflow-x: auto; 
-            padding: 20px 0 60px; 
-            scrollbar-width: none; 
-        }
+        /* --- EVENTS (Restored Horizontal Scroll) --- */
+        .events-container { display: flex; gap: 30px; overflow-x: auto; padding: 20px 0 40px; scrollbar-width: none; }
         .events-container::-webkit-scrollbar { display: none; }
         
         .event-card { 
-            flex: 0 0 300px; 
+            flex: 0 0 320px; 
             background: var(--card-bg); 
-            border-radius: 12px; 
+            border-radius: 8px; 
             overflow: hidden; 
             border: 1px solid #333; 
-            transition: transform 0.3s ease;
+            transition: transform 0.3s;
         }
-        .event-card:hover { transform: translateY(-5px); }
-        .event-banner { width: 100%; height: 170px; object-fit: cover; }
-        .event-info { padding: 20px; }
-        .event-info h3 { margin-bottom: 10px; color: #fff; }
-        .event-info p { font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 5px; }
+        .event-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .event-banner { width: 100%; height: 180px; object-fit: cover; }
+        .event-info { padding: 15px; }
+        .event-info h3 { color: var(--accent-color); font-size: 1.4rem; margin-bottom: 5px; }
+        .event-details p { font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 5px; }
+
+        /* --- SERVICES GRID (Restored) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.3rem; color: #fff; }
 
         /* --- PARTNERS LOOP (Unified Background) --- */
-        .partners-section { 
-            padding: 100px 0; 
-            text-align: center; 
-            overflow: hidden; 
-            background-color: var(--bg-color); /* Match main background */
-        }
-        .partners-section h2 { 
-            margin-bottom: 60px; 
-            font-size: 1.8rem; 
-            color: #fff;
-        }
+        .partners-section { padding: 80px 0; text-align: center; overflow: hidden; background-color: var(--bg-color); }
+        .partners-section h2 { margin-bottom: 60px; font-size: 2rem; color: #fff; }
         
-        .partners-loop-container { 
-            display: flex; 
-            width: fit-content; 
-            animation: partners-scroll 45s linear infinite; 
-        }
-        
+        .partners-loop-container { display: flex; width: fit-content; animation: partners-scroll 40s linear infinite; }
         .partners-logo {
-            flex: 0 0 auto;
-            width: 180px; 
-            height: 70px; 
-            margin: 0 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-shrink: 0; width: 200px; margin: 0 25px;
+            display: flex; align-items: center; justify-content: center;
+            filter: grayscale(100%) brightness(150%);
+            transition: filter 0.3s;
         }
-        
-        .partners-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; 
-            filter: grayscale(100%) brightness(1.3);
-            opacity: 0.6;
-            transition: 0.3s;
-        }
-        .partners-logo img:hover { filter: grayscale(0%) brightness(1); opacity: 1; }
+        .partners-logo:hover { filter: grayscale(0%) brightness(100%); }
+        .partners-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-        @keyframes partners-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
+        @keyframes partners-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CONTACT --- */
-        .contact-container { 
-            max-width: 600px; 
-            margin: 40px auto 100px; 
-            background: var(--card-bg); 
-            padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid #333; 
-        }
-        input, textarea { width: 100%; padding: 14px; margin-bottom: 20px; background: #1a1a1a; border: 1px solid #444; color: #fff; border-radius: 6px; font-size: 1rem; }
-        .submit-btn { 
-            width: 100%; 
-            padding: 16px; 
-            background: var(--accent-gradient); 
-            border: none; 
-            font-weight: bold; 
-            cursor: pointer; 
-            border-radius: 6px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-        }
+        /* --- ABOUT & CONTACT (Restored Content) --- */
+        .about-content { background-color: var(--card-bg); padding: 40px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
+        .contact-container { max-width: 600px; margin: 0 auto 100px; background: var(--card-bg); padding: 40px; border-radius: 8px; border: 1px solid #333; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.9rem; }
+        input, textarea, select { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #3d3d3d; border-radius: 4px; color: #fff; }
+        input:focus, textarea:focus, select:focus { border-color: var(--accent-color); outline: none; }
+        .submit-btn { width: 100%; padding: 12px; background: var(--accent-gradient); border: none; border-radius: 4px; color: #1a1a1a; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- FOOTER (Fixed RWA) --- */
-        footer {
-            padding: 80px 5%;
-            background-color: #111;
-            border-top: 1px solid #333;
-            text-align: center;
-        }
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        .footer-links a { color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin: 0 15px; }
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 60px 5%; color: #999; border-top: 1px solid #333; background-color: #1a1a1a; }
+        .footer-links a { color: var(--accent-color); text-decoration: none; margin: 0 10px; font-size: 0.85rem; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 70px; 
-                left: 0; 
-                width: 100%; 
-                background: var(--card-bg); 
-                border-bottom: 1px solid #333; 
-            }
+            nav ul { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; width: 100%; background: var(--card-bg); }
             nav.mobile-menu ul { display: flex; }
             nav ul li { margin: 0; border-bottom: 1px solid #333; }
-            nav ul li a { display: block; padding: 20px; text-align: center; }
-            .hero h1 { font-size: 2.2rem; }
-            .partners-section { padding: 60px 0; }
+            nav ul li a { display: block; padding: 15px; text-align: center; }
+            h1 { font-size: 2rem; }
+            .hero-banner { min-height: 350px; }
         }
     </style>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header>
-        <div class="logo" onclick="showSection('home')"><img src="logo.png" alt="FestGround"></div>
+        <a href="#" class="logo" onclick="showSection('home')">
+            <img src="logo.png" alt="FestGround Logo">
+        </a>
         <nav id="main-nav">
             <ul>
                 <li><a href="#" onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
@@ -243,28 +227,64 @@
             <div class="hero-banner">
                 <div class="hero">
                     <h1>Asia's Premier Music Festival Platform</h1>
-                    <p>Connecting you to the world's most iconic beats.</p>
+                    <p>Connecting you to the rhythm of the world. Ticketing, Marketing, and VVIP Services.</p>
                 </div>
             </div>
-            
+
             <div class="content-wrap">
                 <h2 class="section-title">Upcoming Events</h2>
                 <div class="events-container">
                     <div class="event-card">
-                        <img src="img/events/neon-countdown-2025.jpg" class="event-banner" alt="Neon Countdown">
-                        <div class="event-info"><h3>Neon Countdown 2025</h3><p>📍 Bangkok, Thailand</p><p>📅 Dec 30 - 31, 2025</p></div>
+                        <img src="img/events/neon-countdown-2025.jpg" alt="Neon Countdown" class="event-banner">
+                        <div class="event-info">
+                            <h3>Neon Countdown 2025</h3>
+                            <div class="event-details">
+                                <p>📍 <strong>Location:</strong> Bangkok, Thailand</p>
+                                <p>📅 <strong>Date:</strong> December 30 - 31, 2025</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="event-card">
-                        <img src="img/events/ultra-japan-2026.png" class="event-banner" alt="Ultra Japan">
-                        <div class="event-info"><h3>Ultra Japan 2026</h3><p>📍 Tokyo, Japan</p><p>📅 Sep 19 - 20, 2026</p></div>
+                        <img src="img/events/ultra-japan-2026.png" alt="Ultra Japan" class="event-banner">
+                        <div class="event-info">
+                            <h3>Ultra Japan 2026</h3>
+                            <div class="event-details">
+                                <p>📍 <strong>Location:</strong> Tokyo, Japan</p>
+                                <p>📅 <strong>Date:</strong> September 19 - 20, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <img src="https://via.placeholder.com/320x180/3d3d3d/FFFFFF?text=Ultra+Bali+2026" alt="Ultra Bali" class="event-banner">
+                        <div class="event-info">
+                            <h3>Ultra Beach Bali 2026</h3>
+                            <div class="event-details">
+                                <p>📍 <strong>Location:</strong> Bali, Indonesia</p>
+                                <p>📅 <strong>Date:</strong> September 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Event Ticketing</h3>
+                        <p>We are the official partner of many world-leading events. FestGround is Asia's first and biggest ticket & travel platform for music festivals.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Event Marketing</h3>
+                        <p>Our data-driven marketing connects organizers with millions of fans. We provide deep insights on Asia's nightlife scene.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>VVIP Concierge</h3>
+                        <p>Sit back and take advantage of the most luxurious travel packages. From backstage tours to exclusive tables.</p>
                     </div>
                 </div>
             </div>
 
             <div class="partners-section">
-                <div class="content-wrap">
-                    <h2>Our Key Event Partners</h2>
-                </div>
+                <div class="content-wrap"><h2>Our Key Event Partners</h2></div>
                 <div class="partners-loop-container">
                     <div class="partners-logo"><img src="img/ultra-korea.png" alt="Ultra Korea"></div>
                     <div class="partners-logo"><img src="img/ultra-japan.png" alt="Ultra Japan"></div>
@@ -292,19 +312,42 @@
 
         <section id="about">
             <div class="content-wrap">
-                <h2 class="section-title">About FestGround</h2>
-                <p>Founded in 2017, FestGround has grown into Asia's premier ticket & travel platform for music festivals. We provide official primary ticketing, international marketing, and luxury VVIP table concierge services.</p>
+                <h2 class="section-title">About Us</h2>
+                <div class="about-content">
+                    <p>Founded in 2017, FestGround started with ticketing major EDM festivals around Asia. As the official partner of many world-leading events, FestGround has quickly become Asia's first and biggest ticket & travel platform for music festivals.</p>
+                    <p><strong style="color:white;">What can you find here?</strong></p>
+                    <p>You can discover iconic music festivals from around the world, explore nightlife events in each city, or use the concierge service to take advantage of the most luxurious travel packages.</p>
+                </div>
             </div>
         </section>
 
         <section id="contact">
             <div class="content-wrap">
-                <h2 class="section-title" style="text-align:center; border: none; padding: 0;">Contact Support</h2>
+                <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Contact Us</h2>
                 <div class="contact-container">
+                    <p style="text-align: center; margin-bottom: 30px;">Have a question or looking for VVIP services? Send us a message.</p>
                     <form onsubmit="sendEmail(event)">
-                        <input type="text" id="name" placeholder="Full Name" required>
-                        <input type="email" id="email" placeholder="Email Address" required>
-                        <textarea id="message" rows="5" placeholder="Your inquiry..." required></textarea>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject">
+                                <option>General Inquiry</option>
+                                <option>VVIP Concierge</option>
+                                <option>Marketing Partnership</option>
+                                <option>Ticketing Issue</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required placeholder="How can we help you?"></textarea>
+                        </div>
                         <button type="submit" class="submit-btn">Send Inquiry</button>
                     </form>
                 </div>
@@ -313,34 +356,37 @@
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 FestGround. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="#" onclick="showSection('contact')">Support</a>
-            </div>
+        <div class="footer-links" style="margin-bottom: 15px;">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#" onclick="showSection('contact')">Support</a>
         </div>
+        <p>&copy; 2025 FestGround. All rights reserved.</p>
     </footer>
 
     <script>
-        function showSection(id) {
+        function showSection(sectionId) {
             if(window.event) window.event.preventDefault();
-            document.getElementById('main-nav').classList.remove('mobile-menu');
-            document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-            const navLink = document.getElementById('nav-' + id);
-            if(navLink) navLink.classList.add('active');
+            const nav = document.getElementById('main-nav');
+            nav.classList.remove('mobile-menu');
+            document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+            const target = document.getElementById(sectionId);
+            if(target) target.classList.add('active');
+            document.querySelectorAll('#main-nav ul li a').forEach(link => link.classList.remove('active'));
+            const navItem = document.getElementById('nav-' + sectionId);
+            if(navItem) navItem.classList.add('active');
             window.scrollTo(0,0);
         }
-        function toggleMobileMenu() { 
-            document.getElementById('main-nav').classList.toggle('mobile-menu'); 
+
+        function toggleMobileMenu() {
+            document.getElementById('main-nav').classList.toggle('mobile-menu');
         }
+
         function sendEmail(e) {
             e.preventDefault();
-            const n = document.getElementById('name').value;
-            const m = document.getElementById('message').value;
-            window.location.href = `mailto:help@festground.com?subject=Inquiry&body=Name: ${n}%0D%0A${m}`;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const name = document.getElementById('name').value;
+            window.location.href = `mailto:help@festground.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\n\n" + message)}`;
         }
     </script>
 </body>
